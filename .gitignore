@@ -3,3 +3,5 @@ node_modules
 *.exe
 
 build
+
+backend-node/database
