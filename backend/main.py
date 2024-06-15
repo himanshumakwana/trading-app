@@ -22,9 +22,22 @@ def get_books():
 @app.route('/option-chain/list', methods=['GET'])
 def getOptionChainList():
     index = request.args.get("index")
-    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36','Accept-Encoding': 'gzip, deflate, br','Accept-Language': 'en-US,en;q=0.9,hi;q=0.8'}
+
+    url_oc = "https://www.nseindia.com/option-chain"
+
+    sess = requests.Session()
+    cookies = dict()
+    
+    request = sess.get(url_oc, headers=headers)
+    cookies = dict(request.cookies)
+    print("cookies set successfully")
+
+    
+    headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36', 'accept-language': 'en,gu;q=0.9,hi;q=0.8', 'accept-encoding': 'gzip, deflate, br'}
     url = f'https://www.nseindia.com/api/option-chain-indices?symbol={index}'
-    response = requests.get(url, headers = headers)
+    # response = requests.get(url, headers = headers)
+    response = sess.get(url, headers=headers, cookies=cookies)
+
 
     if response.status_code == 200:
         return response.json()
