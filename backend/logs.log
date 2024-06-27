@@ -1,0 +1,18 @@
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.26 (64bit) on [Sun Jun 16 11:52:17 2024] ***
+compiled with version: 13.2.0 on 15 June 2024 19:36:37
+os: Linux-6.8.0-1009-aws #9-Ubuntu SMP Fri May 17 14:39:23 UTC 2024
+nodename: ip-172-31-7-206
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /var/www/html/trading-app/backend
+detected binary path: /var/www/html/trading-app/backend/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+your processes number limit is 3769
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+error removing unix socket, unlink(): Operation not permitted [core/socket.c line 198]
+bind(): Address already in use [core/socket.c line 230]

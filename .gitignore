@@ -5,3 +5,21 @@ node_modules
 build
 
 backend-node/database
+
+*.sql
+
+*.db
+
+env
+
+venv
+
+*.csv
+
+*.deb
+
+*.deb.*
+
+*.zip
+
+aws/*

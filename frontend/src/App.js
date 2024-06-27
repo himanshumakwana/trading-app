@@ -118,54 +118,54 @@ function App() {
             const diff = stk.strikePrice < spot;
             const adjustment = (
               stk.strikePrice -
-              (spot - (stk.CE.lastPrice - stk.PE.lastPrice).toFixed(2))
+              (spot - ((stk.CE?.lastPrice ?? 0) - (stk.PE?.lastPrice ?? 0)).toFixed(2))
             ).toFixed(2);
 
             const ceColor = diff ? { background: "rgb(241, 238, 217)" } : {};
             const peColor = !diff ? { background: "rgb(241, 238, 217)" } : {};
 
             const ceCHNGColor =
-              stk.CE.changeinOpenInterest > 0
+              (stk.CE?.changeinOpenInterest ?? 0) > 0
                 ? { color: "green" }
                 : { color: "red" };
 
             const peCHNGColor =
-              stk.PE.changeinOpenInterest > 0
+              (stk.PE?.changeinOpenInterest ?? 0) > 0
                 ? { color: "green" }
                 : { color: "red" };
 
             return (
               <tr key={stk.strikePrice}>
-                <td style={ceColor}>{stk.CE.openInterest}</td>
+                <td style={ceColor}>{stk.CE?.openInterest}</td>
                 <td style={{ ...ceColor, ...ceCHNGColor }}>
-                  {stk.CE.changeinOpenInterest}
+                  {stk.CE?.changeinOpenInterest}
                 </td>
-                <td style={ceColor}>{stk.CE.lastPrice}</td>
+                <td style={ceColor}>{stk.CE?.lastPrice}</td>
 
                 <td>{stk.strikePrice}</td>
 
-                <td style={peColor}>{stk.PE.lastPrice}</td>
+                <td style={peColor}>{stk.PE?.lastPrice}</td>
                 <td style={{ ...peColor, ...peCHNGColor }}>
-                  {stk.PE.changeinOpenInterest}
+                  {stk.PE?.changeinOpenInterest}
                 </td>
-                <td style={peColor}>{stk.PE.openInterest}</td>
+                <td style={peColor}>{stk.PE?.openInterest}</td>
 
                 <td></td>
 
-                <td>{(stk.CE.lastPrice - stk.PE.lastPrice).toFixed(2)}</td>
+                <td>{( (stk.CE?.lastPrice ?? 0) - (stk?.PE?.lastPrice ?? 0) ).toFixed(2)}</td>
                 <td>{adjustment}</td>
                 <td>
                   {(
-                    stk.CE.changeinOpenInterest - stk.PE.changeinOpenInterest
+                    (stk.CE?.changeinOpenInterest ?? 0) - (stk.PE?.changeinOpenInterest ?? 0)
                   ).toFixed(2)}
                 </td>
                 <td>
                   {(
-                    stk.PE.changeinOpenInterest / stk.CE.changeinOpenInterest
+                    (stk.PE?.changeinOpenInterest ?? 0) / (stk.CE?.changeinOpenInterest ?? 0)
                   ).toFixed(2)}
                 </td>
                 <td>
-                  {(stk.PE.openInterest / stk.CE.openInterest).toFixed(2)}
+                  {((stk.PE?.openInterest ?? 0) / (stk.CE?.openInterest ?? 0)).toFixed(2)}
                 </td>
               </tr>
             );

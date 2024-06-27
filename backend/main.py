@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request
 import requests
 from flask_cors import CORS
+# from nsepython import *
+from nsepythonserver import *
 
 app = Flask(__name__)
 CORS(app)
@@ -23,26 +25,28 @@ def get_books():
 def getOptionChainList():
     index = request.args.get("index")
 
-    url_oc = "https://www.nseindia.com/option-chain"
-
-    sess = requests.Session()
-    cookies = dict()
-    
-    request = sess.get(url_oc, headers=headers)
-    cookies = dict(request.cookies)
-    print("cookies set successfully")
-
-    
+    # url_oc = "https://www.nseindia.com/option-chain"
     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36', 'accept-language': 'en,gu;q=0.9,hi;q=0.8', 'accept-encoding': 'gzip, deflate, br'}
+
+    # sess = requests.Session()
+    # cookies = dict()
+    
+    # requestCookie = sess.get(url_oc, headers=headers)
+    # cookies = dict(requestCookie.cookies)
+    # print("cookies set successfully")
+
+    
     url = f'https://www.nseindia.com/api/option-chain-indices?symbol={index}'
+    print(url)
     # response = requests.get(url, headers = headers)
-    response = sess.get(url, headers=headers, cookies=cookies)
+    response = nsefetch(url)
 
+    return response
 
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return f"Error: Failed to fetch data, status code: {response.status_code}", 500
+    # if response.status_code == 200:
+    #     return response.json()
+    # else:
+    #     return f"Error: Failed to fetch data, status code: {response.status_code}", 500
 
 
 # GET method to retrieve a specific book

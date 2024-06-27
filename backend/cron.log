@@ -1,0 +1,48 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 99220  100 99220    0     0   441k      0 --:--:-- --:--:-- --:--:--  442k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 99220  100 99220    0     0  1474k      0 --:--:-- --:--:-- --:--:-- 1468k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 99220  100 99220    0     0  1058k      0 --:--:-- --:--:-- --:--:-- 1064k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 99285  100 99285    0     0  1622k      0 --:--:-- --:--:-- --:--:-- 1643k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 99285  100 99285    0     0   782k      0 --:--:-- --:--:-- --:--:--  788k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 65235  100 65235    0     0  1017k      0 --:--:-- --:--:-- --:--:-- 1027k
+starting cron 2024-06-27 00:15:59.634822+05:30
+coming here
+https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY
+coming here
+https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY
+coming here
+https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY
+coming here
+https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY
+coming here
+https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY
+coming here
+https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY
+Traceback (most recent call last):
+  File "/var/www/html/trading-app/backend/cron.py", line 113, in <module>
+    schedule.run_pending()
+  File "/var/www/html/trading-app/backend/venv/lib/python3.12/site-packages/schedule/__init__.py", line 854, in run_pending
+    default_scheduler.run_pending()
+  File "/var/www/html/trading-app/backend/venv/lib/python3.12/site-packages/schedule/__init__.py", line 101, in run_pending
+    self._run_job(job)
+  File "/var/www/html/trading-app/backend/venv/lib/python3.12/site-packages/schedule/__init__.py", line 173, in _run_job
+    ret = job.run()
+          ^^^^^^^^^
+  File "/var/www/html/trading-app/backend/venv/lib/python3.12/site-packages/schedule/__init__.py", line 691, in run
+    ret = self.job_func()
+          ^^^^^^^^^^^^^^^
+  File "/var/www/html/trading-app/backend/cron.py", line 25, in job
+    spot = data['records']['underlyingValue']
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'underlyingValue'
