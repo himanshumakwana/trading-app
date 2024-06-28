@@ -1,0 +1,7 @@
+POST http://localhost:5000/option-chain/chart
+Content-Type: application/json
+
+{
+    "expiry_dates": "27-Jun-2024",
+    "strike_price": "23900"
+}

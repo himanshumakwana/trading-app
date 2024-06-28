@@ -5,3 +5,5 @@ start:
 cron:
 	nohup python3 cron.py > cron.log 2>&1 &
 
+dev:
+	python3 main.py

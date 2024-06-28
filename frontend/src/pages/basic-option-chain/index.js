@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 const indexes = ["NIFTY", "BANKNIFTY", "FINNIFTY", "MIDCPNIFTY"];
 
-function App() {
+function BasicOptionChain() {
   const [optionChain, setOptionChain] = useState({});
   const [spot, setSpot] = useState(0);
 
@@ -48,7 +48,7 @@ function App() {
         (stk) => stk.expiryDate === selectedExpiry
       ) ?? []
     );
-  }, [selectedExpiry]);
+  }, [optionChain?.records?.data, selectedExpiry]);
 
   console.log("option chain data ", optionChain);
   console.log("tot OI ", totOI);
@@ -152,7 +152,7 @@ function App() {
 
                 <td></td>
 
-                <td>{( (stk.CE?.lastPrice ?? 0) - (stk?.PE?.lastPrice ?? 0) ).toFixed(2)}</td>
+                <td>{((stk.CE?.lastPrice ?? 0) - (stk?.PE?.lastPrice ?? 0)).toFixed(2)}</td>
                 <td>{adjustment}</td>
                 <td>
                   {(
@@ -176,4 +176,4 @@ function App() {
   );
 }
 
-export default App;
+export default BasicOptionChain;

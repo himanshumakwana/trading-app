@@ -23,3 +23,5 @@ venv
 *.zip
 
 aws/*
+
+.env
